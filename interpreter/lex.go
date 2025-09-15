@@ -9,7 +9,8 @@ type Token struct {
 	Value string
 }
 
-func Lex(Set string) {
+func Lex(Set string) []Token {
+	var Tokens []Token
 	for i := 0; i < len(Set); {
 		if unicode.IsSpace(rune(Set[i])) {
 			i++
@@ -20,10 +21,12 @@ func Lex(Set string) {
 				str = str + string(Set[i])
 				i++
 			}
-			println(str)
+			Tokens = append(Tokens, Token{"IDENT", str})
 
 		} else {
 			i++
 		}
 	}
+	Tokens = append(Tokens, Token{"EOF", ""})
+	return Tokens
 }

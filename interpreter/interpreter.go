@@ -1,6 +1,8 @@
 package interpreter
 
+import "fmt"
+
 func Interpret(cmd string) {
 
-	Lex(cmd)
+	fmt.Println(Lex(cmd))
 }
