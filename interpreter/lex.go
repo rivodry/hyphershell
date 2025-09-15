@@ -23,6 +23,19 @@ func Lex(Set string) []Token {
 			}
 			Tokens = append(Tokens, Token{"IDENT", str})
 
+		} else if unicode.IsDigit(rune(Set[i])) {
+			dots := 0
+			var num string
+			for i < len(Set) && dots < 2 && (unicode.IsDigit(rune(Set[i])) || rune(Set[i]) == '.') {
+				if rune(Set[i]) == '.' {
+					dots++
+				}
+
+				num = num + string(Set[i])
+				i++
+			}
+			Tokens = append(Tokens, Token{"NUMBER", num})
+
 		} else {
 			i++
 		}
