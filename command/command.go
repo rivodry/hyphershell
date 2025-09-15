@@ -1,11 +1,17 @@
 package command
 
-import "fmt"
+import (
+	"bufio"
+	"os"
+)
 
 type Command struct {
 	Cmd string
 }
 
 func (cmd *Command) Get() {
-	fmt.Scanln(&cmd.Cmd)
+	reader := bufio.NewReader(os.Stdin)
+	input, _ := reader.ReadString('\n')
+	cmd.Cmd = input
+
 }
