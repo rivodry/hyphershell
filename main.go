@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"hyphershell/command"
+	"hyphershell/interpreter"
 )
 
 var CMD command.Command
@@ -12,7 +13,7 @@ func shell() {
 
 		fmt.Print(">")
 		CMD.Get()
-		fmt.Println(CMD.Cmd)
+		interpreter.Interpret(CMD.Cmd)
 	}
 }
 func main() {
