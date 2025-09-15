@@ -2,14 +2,17 @@ package main
 
 import (
 	"fmt"
+	"hyphershell/command"
 )
+
+var CMD command.Command
 
 func shell() {
 	for {
-		var cmd string
+
 		fmt.Print(">")
-		fmt.Scanln(&cmd)
-		fmt.Println(cmd)
+		CMD.Get()
+		fmt.Println(CMD.Cmd)
 	}
 }
 func main() {
