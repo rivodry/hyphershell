@@ -34,6 +34,10 @@ func Lex(Set string) []Token {
 				num = num + string(Set[i])
 				i++
 			}
+			if num[len(num)-1] == '.' {
+				num = num[:len(num)-1]
+
+			}
 			Tokens = append(Tokens, Token{"NUMBER", num})
 
 		} else {
