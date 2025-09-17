@@ -24,5 +24,11 @@ func e(args []string) {
 }
 func main() {
 	args := os.Args[1:]
-
+	if len(args) == 0 {
+		shell()
+	} else {
+		if args[0] == "-e" {
+			e(args[1:])
+		}
+	}
 }
