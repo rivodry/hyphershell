@@ -13,6 +13,7 @@ func shell() {
 
 		fmt.Print(">")
 		CMD.Get()
+
 		interpreter.Interpret(CMD.Cmd)
 	}
 }
