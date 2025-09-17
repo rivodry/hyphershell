@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"hyphershell/command"
 	"hyphershell/interpreter"
+	"os"
+	"strings"
 )
 
 var CMD command.Command
@@ -17,7 +19,10 @@ func shell() {
 		interpreter.Interpret(CMD.Cmd)
 	}
 }
+func e(args []string) {
+	interpreter.Interpret(strings.Join(args, " "))
+}
 func main() {
-	shell()
+	args := os.Args[1:]
 
 }
